@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+env_mlops/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# ML / experiment artifacts
+mlruns/
+mlartifacts/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
