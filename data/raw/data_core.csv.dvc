@@ -1,0 +1,5 @@
+outs:
+- md5: c4620a6e2972d428cdc25a8613017bcf
+  size: 374725
+  hash: md5
+  path: data_core.csv
