@@ -24,11 +24,11 @@ df = df[['Temparature', 'Humidity', 'Moisture', 'Soil Type', 'Crop Type']]
 df.columns = ['temperature', 'humidity', 'soil_moisture', 'soil_type', 'crop_type']
 df['rainfall'] = np.random.uniform(0, 50, len(df))
 
-crop_coeff = {'Maize': 0.55, 'Sugarcane': 0.65, 'Cotton': 0.60, 'Tobacco': 0.45, 'Paddy': 0.70, 'Barley': 0.45, 'Wheat': 0.50, 'Millets': 0.40, 'Oil seeds': 0.42, 'Pulses': 0.38, 'Ground Nuts': 0.48}
-soil_coeff = {'Sandy': 0.20, 'Loamy': 0.00, 'Black': -0.10, 'Red': 0.05, 'Clayey': -0.15}
+
 
 def calc_litres(row):
-    coeff = crop_coeff.get(row['crop_type'], 0.50)
+    coeff = ccrop_coeff = {'Maize': 0.55, 'Sugarcane': 0.65, 'Cotton': 0.60, 'Tobacco': 0.45, 'Paddy': 0.70, 'Barley': 0.45, 'Wheat': 0.50, 'Millets': 0.40, 'Oil seeds': 0.42, 'Pulses': 0.38, 'Ground Nuts': 0.48}
+    soil_coeff = {'Sandy': 0.20, 'Loamy': 0.00, 'Black': -0.10, 'Red': 0.05, 'Clayey': -0.15}rop_coeff.get(row['crop_type'], 0.50)
     sol = soil_coeff.get(row['soil_type'], 0.00)
     litres = (100 - row['soil_moisture']) * coeff + max(0, row['temperature'] - 20) * 0.35 - row['rainfall'] * 0.60 + sol * 10 + np.random.normal(0, 2)
     return round(max(5, min(80, litres)), 1)
